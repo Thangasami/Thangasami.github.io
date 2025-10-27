@@ -1,12 +1,6 @@
-title: "My journey through GenAI, LLMs, and everything in between.”
+title: "Me, Myself & Mostly AI”
 author: "Thangasami Sivanu"
-description: "Welcome to my personal space where curiosity meets code.
-
-This blog is a reflection of my journey through the evolving world of Artificial Intelligence—featuring hands-on learnings, deep dives into GenAI, LLMs, RAG architectures, and the latest trends shaping the future of intelligent systems. Whether it's building production-grade models, experimenting with new tools, or unpacking complex concepts, I share insights, tutorials, and real-world applications from my experience as an AI engineer.
-
-Beyond the tech, you'll also find a personal page where I share milestones, thoughts, and moments that shape who I am—because behind every algorithm is a human story.
-
-If you're passionate about AI, eager to learn, or just curious about the mind behind the machine, you're in the right place." # This will show up in places like twitter, linkedin, etc, if you share your sites url as a post.
+description: "Sharing my journey in AI—projects, learnings, and personal insights along the way." # This will show up in places like twitter, linkedin, etc, if you share your sites url as a post.
 
 # Email / Social media user names used by the minima theme:
 # All of these are optional and can be removed or commented out
