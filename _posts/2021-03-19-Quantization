@@ -1,0 +1,64 @@
+Quantization — The way of using ML model in Edge Devices.
+
+There is huge talk in the data science world about scaling up machine learning models using Big data tools like Spark, Hadoop, etc. At the same time, there is another interesting area opposite to them in Data Science which is creating a lightweight machine learning Model suitable for Edge devices.
+
+Devices like microcontrollers, wearable devices (fit band, smartwatch, etc) used to have very little memory mostly in MB. They are usually called Edge devices. Quantization is a process of reducing model size so that it can run on EDGE devices. In this article, we are going to see how Quantization works at a high level and respective python codes.
+
+Quantization:
+
+Quantization is a general term that covers a lot of different techniques to convert input values from a large set to output values in a smaller set. Usually it replaces float32 parameters and inputs with other types, such as float16, INT32, INT16, INT8, INT4, INT1 etc. The most common choice is INT8.
+
+There are various techniques used for Quantization conversion like Scale Quantization, Affine Quantization etc. There are research papers available online on this topic for reference. Since our focus is more on python implementation, let us see those details below.
+
+There are two ways to perform quantization.
+
+Post Training Quantization (TF Model →Tf.lite convert →Apply Quantization)
+Quantization Aware Training (TF Model →Apply Quantized Model →Train again and Fine tune →Tf.lite.convert)
+As mentioned above, the difference between the two methods is in when to apply quantization techniques. If the quantization process is applied at the last stage, we used to call Post Training Quantization. If we apply quantization immediately after model training, and fine-tune the quantization model again is called Quantization Aware Training.
+
+We took the existing simple neural network model for our analysis. Respective model details are given below.
+
+Press enter or click to view image in full size
+
+Model Summary
+Press enter or click to view image in full size
+
+Model performance before conversion
+Post Training Quantization:
+
+For post-training Quantization, we have converted the model into tf-lite model first.
+
+Press enter or click to view image in full size
+
+Converting Model to tflite model
+The quantization technique will be applied over to tf-lite model as given below.
+
+Press enter or click to view image in full size
+
+Quantization Aware Training:
+
+In Quantization Aware Training, the Quantization method will be applied to the model directly first. Then same model will be compiled and trained with a small number of epochs.
+
+tensorflow_model_optimization is separate tf lib, we need to install for this using PIP command. Converting neural network model to quantization model using tf lib is given below.
+
+Press enter or click to view image in full size
+
+Based on the above screenshot, The performance of the model is also not impacted much by this conversion.
+
+The second step is converting quant model to tf-lite model and respective python code details are given below.
+
+Press enter or click to view image in full size
+
+Press enter or click to view image in full size
+
+Observations:
+
+Models can be saved to local machine by using below python code.
+
+Press enter or click to view image in full size
+
+Size comparison among Regular Model, Post training Quantization approach and Quantization aware training approach are given below.
+
+Press enter or click to view image in full size
+
+Size of the model almost reduced to one by fourth in both scenarios. However, Quantization aware training is prefered over Post training Qauantization method for good accuracy. At the same time, Post training Quantization is easy to implement approch which can not be ignored.
